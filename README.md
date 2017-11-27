@@ -1,4 +1,4 @@
-# fp-in-scala
+# Functional Programming in Scala
 This repository contains the solutions to the problems mentioned in *Manning Functional Pogramming in Scala.*
 
 The project includes - 
