@@ -11,6 +11,12 @@ class Exercise4_1Test extends FlatSpec {
     assert(result.getOrElse(0) == 1000)
   }
 
+  it should "return the existing value" in {
+    val value  = MySome(10)
+
+    assert(value.getOrElse(0) == 10)
+  }
+
   it should "return none given filter fails" in {
     val value  = MySome(10)
     val result = value.filter( _ > 1000)
