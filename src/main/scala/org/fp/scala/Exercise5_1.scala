@@ -26,6 +26,16 @@ sealed trait Stream[+A] {
     }
     take$(this, 1, List())
   }
+
+  def forAll(p: A => Boolean): Boolean = {
+    def forAll$(stream: Stream[A], result: Boolean = false): Boolean = {
+      stream match {
+        case Empty      => result
+        case Cons(h ,t) => if (p(h())) forAll$(t(), result = true) else false
+      }
+    }
+    forAll$(this)
+  }
 }
 case object Empty extends Stream[Nothing]
 case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]
